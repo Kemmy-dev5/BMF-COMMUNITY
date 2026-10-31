@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f5943" />
+      <stop offset="50%" stop-color="#164332" />
+      <stop offset="100%" stop-color="#0d291e" />
+    </linearGradient>
+    <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d9ed74" />
+      <stop offset="100%" stop-color="#82b65b" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <!-- Background rounded squircle -->
+  <rect x="16" y="16" width="480" height="480" rx="112" fill="url(#bg)" />
+
+  <!-- Subtle glowing accent ring -->
+  <rect x="24" y="24" width="464" height="464" rx="104" fill="none" stroke="#d9ed74" stroke-width="4" stroke-opacity="0.25" />
+
+  <!-- Organic leaf curve element -->
+  <path d="M 330 110 C 400 160 410 270 340 330 C 270 390 170 370 140 300 C 120 220 230 140 330 110 Z" fill="url(#leafGrad)" opacity="0.18" />
+
+  <!-- Main Monogram Crest "B" -->
+  <g filter="url(#shadow)">
+    <path d="M 160 128 L 270 128 C 325 128 365 155 365 200 C 365 230 345 250 315 258 C 355 268 380 295 380 336 C 380 384 335 416 270 416 L 160 416 Z M 225 186 L 225 242 L 265 242 C 290 242 308 230 308 214 C 308 198 290 186 265 186 Z M 225 302 L 225 358 L 272 358 C 298 358 318 344 318 330 C 318 316 298 302 272 302 Z" fill="#ffffff" />
+  </g>
+
+  <!-- Leaf accent badge in top right corner of the emblem -->
+  <circle cx="366" cy="146" r="24" fill="url(#leafGrad)" />
+</svg>
