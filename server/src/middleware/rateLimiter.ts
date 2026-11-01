@@ -5,6 +5,7 @@ export const authLimiter = rateLimit({
   limit: 30, // 30 requests per 15 minutes
   standardHeaders: true,
   legacyHeaders: false,
+  validate: { xForwardedForHeader: false },
   message: {
     success: false,
     message: 'Trop de tentatives depuis cette adresse IP. Veuillez patienter 15 minutes avant de réessayer.',
@@ -16,6 +17,7 @@ export const uploadLimiter = rateLimit({
   limit: 60, // 60 uploads per 10 minutes
   standardHeaders: true,
   legacyHeaders: false,
+  validate: { xForwardedForHeader: false },
   message: {
     success: false,
     message: 'Trop de téléversements effectués. Veuillez patienter avant d’en envoyer d’autres.',
@@ -27,6 +29,7 @@ export const apiLimiter = rateLimit({
   limit: 600, // 600 requests per minute
   standardHeaders: true,
   legacyHeaders: false,
+  validate: { xForwardedForHeader: false },
   message: {
     success: false,
     message: 'Trop de requêtes envoyées. Ralentissez vos interactions.',

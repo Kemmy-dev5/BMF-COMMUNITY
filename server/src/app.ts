@@ -16,6 +16,9 @@ import { postsRouter } from './routes/posts/posts.routes.js';
 
 export const app = express();
 
+// Trust reverse proxy headers (Render, Cloudflare, Heroku, Nginx)
+app.set('trust proxy', 1);
+
 app.use(cors({
   origin: (origin, callback) => {
     const configuredOrigins = (process.env.CLIENT_URL || env.clientUrl || '')
@@ -85,5 +88,6 @@ app.use('/api/posts', postsRouter);
 
 app.use((error: unknown, _request: express.Request, response: express.Response, _next: express.NextFunction) => {
   console.error('API request failed:', error);
-  response.status(500).json({ success: false, message: 'Une erreur interne est survenue.' });
+  const message = error instanceof Error ? error.message : 'Une erreur interne est survenue.';
+  response.status(500).json({ success: false, message });
 });
